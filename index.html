@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herança de Terra e Futuro — Agrinho 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <video id="video-floresta" autoplay loop muted playsinline>
+        <source src="floresta 2.mp4" type="video/mp4">
+    </video>
+    <audio id="audio-floresta" loop>
+        <source src="som cachoeira 2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="audio-campo" loop>
+        <source src="som campo 1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Container principal do livro e fundo ambiental -->
+    <div class="envolvente">
+      <div class="area-livro">
+        <div id="titulo-topo">Herança de Terra e Futuro</div>
+        <!-- Clique na capa para abrir o livro -->
+        <div id="livro" class="container-livro" onclick="abrirLivro()">
+
+            <div class="capa" id="capa-livro">
+                <div class="capa-frente">
+                    <div class="capa-conteudo">
+                        <span class="detalhe-folha">🌱</span>
+                        <h1>Herança de Terra e Futuro</h1>
+                        <p>Agrinho 2026</p>
+                    </div>
+                </div>
+                <div class="capa-costas"></div>
+                <div class="capa-dica">— clique para abrir —</div>
+            </div>
+
+            <div class="livro-aberto">
+                <div class="conteudo-paginas">
+                    <div class="pagina-esq">
+                        <h2 id="titulo-esq"></h2>
+                        <p id="texto-esq"></p>
+                    </div>
+                    <div class="pagina-dir">
+                        <h2 id="titulo-dir"></h2>
+                        <div id="conteudo-dir"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles de navegação entre páginas do livro -->
+        <div id="controles" class="escondido">
+            <button class="btn-nav" onclick="mudarPagina(-1)">← Voltar</button>
+            <div id="indicador">Capítulo 1 de 6</div>
+            <button class="btn-nav" onclick="mudarPagina(1)">Próximo →</button>
+        </div>
+      </div>
+      <!-- Botão para alterar o fundo e opções de vídeo -->
+      <div class="fundo-controle" id="fundo-controle">
+        <button id="btn-alterar-fundo" onclick="toggleOpcoesFundo()">Alterar Fundo</button>
+        <div id="opcoes-fundo" class="opcoes-fundo">
+          <button class="opcao ativo" data-fundo="floresta" onclick="selecionarFundo('floresta')">Floresta 2</button>
+          <button class="opcao" data-fundo="campo" onclick="selecionarFundo('campo')">Campo 1</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

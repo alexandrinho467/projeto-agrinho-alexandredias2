@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Introdução — Herança de Terra e Futuro</title>
+  <style>
+    :root{
+      --bg: #f6ecd6;
+      --card: #ffffff;
+      --text: #2e3b2a;
+      --accent: #2e7d32;
+    }
+    .dark{
+      --bg: #0f1a14;
+      --card: #0b2a1a;
+      --text: #dfeee0;
+      --accent: #7fd386;
+    }
+    html,body{height:100%;}
+    body { font-family: Georgia, serif; background: var(--bg); color: var(--text); margin:0; padding:24px; transition: background .25s ease, color .25s ease; }
+    .container { max-width: 760px; margin: 40px auto; background: var(--card); padding: 28px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); transition: background .25s ease, color .25s ease;} 
+    h1 { color: var(--accent); }
+    h2 { margin-top: 20px; }
+    p { line-height: 1.8; font-size: 1.05rem; }
+    ul { line-height:1.7; }
+    .controls { display:flex; gap:10px; justify-content:flex-end; margin-bottom:12px; }
+    .btn-theme { background: rgba(0,0,0,0.06); border: none; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:700; }
+    .btn-theme.active { box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+    .ack { font-size:0.9rem; opacity:0.9; margin-top:18px; text-align:right; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <button class="btn-theme" id="btn-claro">Claro</button>
+      <button class="btn-theme" id="btn-escuro">Escuro</button>
+    </div>
+    <h1>🌱 Sustentabilidade no Campo: O Futuro da Nossa Terra</h1>
+    <p>Produzir alimentos respeitando a natureza é o único caminho para garantir o futuro das próximas gerações. Práticas sustentáveis no campo — como o manejo correto do solo através de etapas cuidadosas de <strong>arar, adubar, plantar e regar</strong> — protegem o meio ambiente e transformam a agricultura em uma força positiva para o planeta.</p>
+
+    <h2>🚀 Principais Benefícios</h2>
+    <ul>
+      <li><strong>Preservação do Solo</strong>: Evita o desgaste da terra e garante solo fértil por muito mais tempo.</li>
+      <li><strong>Economia de Água</strong>: Técnicas de rega inteligente reduzem o desperdício de recursos hídricos.</li>
+      <li><strong>Alimentos Saudáveis</strong>: O uso correto de adubos orgânicos gera produtos livres de excesso de químicos.</li>
+      <li><strong>Equilíbrio Ecológico</strong>: Protege a fauna, a flora e os pequenos ecossistemas locais.</li>
+    </ul>
+
+    <hr>
+
+    <h3>💚 Agradecimentos Especiais</h3>
+    <p>Gostaria de expressar meu sincero agradecimento ao <strong>Projeto Agrinho</strong> por incentivar a conscientização ambiental, o amor pela terra e a criatividade através da tecnologia. Este mini-game é o reflexo do aprendizado sobre a importância de cuidar do nosso ecossistema rural.</p>
+    <p class="ack">Desenvolvido com dedicação por: <strong>Alexandre Dias Melo Da Silva</strong></p>
+  </div>
+  <script>
+    const btnClaro = document.getElementById('btn-claro');
+    const btnEscuro = document.getElementById('btn-escuro');
+    function aplicarTema(tema){
+      if(tema === 'dark') document.documentElement.classList.add('dark');
+      else document.documentElement.classList.remove('dark');
+      localStorage.setItem('introTheme', tema);
+      btnClaro.classList.toggle('active', tema==='light');
+      btnEscuro.classList.toggle('active', tema==='dark');
+    }
+    btnClaro.addEventListener('click', ()=> aplicarTema('light'));
+    btnEscuro.addEventListener('click', ()=> aplicarTema('dark'));
+    (function(){
+      const saved = localStorage.getItem('introTheme') || 'light';
+      aplicarTema(saved);
+    })();
+  </script>
+</body>
+</html>
